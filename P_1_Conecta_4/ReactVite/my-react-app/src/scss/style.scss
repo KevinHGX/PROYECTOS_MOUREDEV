@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.App {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; // Toma toda la altura del viewport
+
+    #title {
+        //background: red;
+        text-align: center;
+        font-size: 70px;
+    }
+
+    #content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #boardGame {
+            background:black;
+            padding:5px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap:2.5px;
+            margin-bottom:10px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2px;
+        }
+
+        #players{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p{
+                margin: 10px 0.6em;
+                background: black;
+                padding: 10px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
