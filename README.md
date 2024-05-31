@@ -9,7 +9,7 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
 # <img src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/5deed925369e57e9c58ba576ce303466984db501/svg-loaders/bars.svg" width = 20px> PROYECTO 1 >> Capturas
 ## <img src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/5deed925369e57e9c58ba576ce303466984db501/svg-loaders/bars.svg" width = 20px> PROYECTO 1 >> CONECTA 4 
 ## REACT - VITE
-![REACT](./ReactVite/capturas/scrnli_30_5_2024_8-20-17%20p-m-.png)
+![REACT](./P_1_Conecta_4/ReactVite/capturas/scrnli_30_5_2024_8-20-17%20p-m-.png)
 ## C++ (en desarrollo...)
 
 # <img src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/5deed925369e57e9c58ba576ce303466984db501/svg-loaders/bars.svg" width = 20px> PROYECTO 2 "Proximamente"
