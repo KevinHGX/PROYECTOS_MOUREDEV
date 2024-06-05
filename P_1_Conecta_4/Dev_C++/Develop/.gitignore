@@ -1,0 +1,11 @@
+#ignorar archivos generados de compilacion alojados en el directorio build/ 
+build/
+
+#ignorar bibliotecas de terceros que practicamente no se requieren ratreas
+arc/
+
+#ignorar todos los rescursos,(img,ttf,music, etc... )
+res/
+
+#ignorar binario
+bin/

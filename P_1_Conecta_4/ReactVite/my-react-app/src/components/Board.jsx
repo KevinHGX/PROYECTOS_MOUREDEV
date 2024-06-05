@@ -80,7 +80,6 @@ const Board = () => {
     } else if (winner === 2) {
       setWins(prev => ({ ...prev, yellow: prev.yellow + 1 }));
     }
-    resetBoard();
   }
 };
 
@@ -98,7 +97,7 @@ const Board = () => {
       <div id="boardGame">
         {board.map((row, rowIndex) =>
           row.map((cell, cellIndex) => (
-            <Cell className="cells" key={cellIndex} value={cell} onClick={() => handleClick(cellIndex)} />
+            <Cell key={cellIndex} value={cell} onClick={() => handleClick(cellIndex)} />
           ))
         )}
       </div>
