@@ -14,6 +14,7 @@ INPU_DIR  := $(LIB_DIR)/Input
 UI_DIR    := $(LIB_DIR)/UI
 
 #---------------------- SDL2 -----------------------------------
+# Asegurae de descomprimir los archivos .Zip alojados en "arc/SDL2" para generar el ejecutable del proyecto
 LIBS = 	-L"./arc/SDL2/SDL2-devel-2.28.3-mingw/SDL2-2.28.3/x86_64-w64-mingw32/lib" \
  		-L"./arc/SDL2/SDL2_ttf-devel-2.22.0-mingw/SDL2_ttf-2.22.0/x86_64-w64-mingw32/lib"\
 		-L"./arc/SDL2/SDL2_image-devel-2.0.5-mingw/SDL2_image-2.0.5/x86_64-w64-mingw32/lib" -static-libgcc -lmingw32 -lSDL2main -lSDL2 -lSDL2_test -lSDL2_image -lSDL2_ttf
