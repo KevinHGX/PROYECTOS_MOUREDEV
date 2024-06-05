@@ -26,7 +26,8 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
  
 ## REACT - VITE
 ![REACT](./P_1_Conecta_4/ReactVite/capturas/scrnli_30_5_2024_8-20-17%20p-m-.png)
-## C++ (en desarrollo...)
+## C++ | SDL2
+![C/C++](./P_1_Conecta_4/Dev_C++/Develop/res/Captures/Game.PNG)
 
 # <img src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/5deed925369e57e9c58ba576ce303466984db501/svg-loaders/bars.svg" width = 20px> PROYECTO 2 "Proximamente"
 
