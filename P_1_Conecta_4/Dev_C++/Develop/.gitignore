@@ -1,8 +1,12 @@
 #ignorar archivos generados de compilacion alojados en el directorio build/ 
 build/
 
+#Durate el desarrollo de manera local ignorar las siguientes carpetas arc/, res/ bin/
+
 #ignorar bibliotecas de terceros que practicamente no se requieren ratreas
-arc/
+#arc/
+
+#res/
 
 #ignorar binario
-bin/
+#bin/
