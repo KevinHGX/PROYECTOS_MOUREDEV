@@ -50,6 +50,6 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
  */
 
 NOTA: El listado pasara de ser Star Wars a Jujutsu Kaisen, para que de esta manera el Requisito #1 me permita implementar una API desde cero
-Administrarlo mediante C++ y Visualizarlo con Framework REACT, para manetener la practica en ambos lenguajes.
+Administrarlo mediante C++ y Visualizarlo con Framework REACT, para mantener la practica en ambos lenguajes.
 
-## C++ en desarrollo...
+## PARTE 1 - Admin >> C++ en desarrollo...
