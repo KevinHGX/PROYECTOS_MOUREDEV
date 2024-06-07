@@ -31,3 +31,25 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
 
 # <img src="https://raw.githubusercontent.com/SamHerbert/SVG-Loaders/5deed925369e57e9c58ba576ce303466984db501/svg-loaders/bars.svg" width = 20px> PROYECTO 2 "Proximamente"
 
+## Descripcion:
+
+/*
+ * Crea una app que sirva para listar los personajes de Star Wars y que te permita
+ * buscarlos por nombre.
+ *
+ * Requisitos:
+ * - Usa el API https://swapi.dev
+ * - El diseño es de libre elección.
+ * - Debe mostrar un listado y un detalle de cada personaje.
+ * - El listado tendrá que estar paginado.
+ * - El listado poseerá un filtro de búsqueda.
+ * - Al seleccionar un personaje del listado, el detalle mostrará los datos que
+ *   consideres oportunos.
+ * - OPCIONAL: Detalle de películas, vehículos, naves, especies...
+ * - OPCIONAL: Foto de cada personaje.
+ */
+
+NOTA: El listado pasara de ser Star Wars a Jujutsu Kaisen, para que de esta manera el Requisito #1 me permita implementar una API desde cero
+Administrarlo mediante C++ y Visualizarlo con Framework REACT, para manetener la practica en ambos lenguajes.
+
+## C++ en desarrollo...
