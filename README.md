@@ -49,7 +49,4 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
  * - OPCIONAL: Foto de cada personaje.
  */
 
-NOTA: El listado pasara de ser Star Wars a Jujutsu Kaisen,#1-Por gusto, #2-Para que de esta manera el Requisito-#1 me permita implementar una API desde cero
-Administrarlo mediante C++ y Visualizarlo con Framework REACT, para mantener la practica en ambos lenguajes.
-
-## PARTE 1 - Admin >> C++ en desarrollo...
+ ## React | en desarrollo
