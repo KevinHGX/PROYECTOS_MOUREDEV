@@ -7,6 +7,17 @@ function AsideList({ url, setNewURL, setNewFileMain}) {
   //Almacenar el contenido de result
   let results = (data) ? data.results : [] ;
 
+  useEffect(()=>{
+    let aux;
+    if (results.length > 0) {
+      const firstValue = results[0];
+      aux = firstValue.url; 
+      setNewFileMain(aux);
+    } else {
+      console.log("El array está vacío.");
+    }
+  },[url,data]);
+
   const handleShowMore = (current) => {
     //let newUrl;
     if(data && data?.next !== null && current !== 'next') { 

@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { useFetch } from './useFetch';
 import { FilmsComponent, PeopleComponent, PlanetsComponent, SpeciesComponent, StarshipsComponent, VehiclesComponent } from './selectedComponent';
 
 //                people, https//por parte de Aside
-function ShowMain({ ckey, newFileMain }) {
-  const { data, loading, error } = useFetch(newFileMain);
-  //console.log("ShowMain:",data.vehicles);
-  const [selectedKey, setSelectedKey] = useState(ckey);
+function ShowMain( props ) {
+  const { data, loading, error } = useFetch(props.newFileMain);
+  const [file,setFile] = useState(props.newFileMain);
+  const [selectedKey, setSelectedKey] = useState(props.ckey);
 
   const componentsMap = {
     "films": FilmsComponent,
@@ -17,11 +17,17 @@ function ShowMain({ ckey, newFileMain }) {
     "vehicles": VehiclesComponent,
   };
 
+  useEffect(() => {
+    setSelectedKey(props.ckey);
+  }, [props.ckey]);
+
   const SelectedComponent = selectedKey ? componentsMap[selectedKey] : null;
 
   return (
     <>
-      <h1>{data?.name || data?.title}</h1>
+      {error && <h2>Error: {error}</h2>}
+      {loading && <h2>Loading...</h2>}
+      {data && <SelectedComponent data={data} update={props.newFileMain}/>}
     </>
   );
 }
@@ -29,7 +35,4 @@ function ShowMain({ ckey, newFileMain }) {
 export default ShowMain;
 
 /*
-{error && <h2>Error: {error}</h2>}
-      {loading && <h2>Loading...</h2>}
-      {data && <SelectedComponent data={data} />}
 */
