@@ -1,0 +1,45 @@
+/*
+Cuerpo de texto
+Predeterminado: 16pxo 1em
+En el móvil: utilice los valores predeterminados, a veces un 10% más pequeños
+En el escritorio: suba hasta 24px o 1.5em
+
+Texto de visualización (título 1)
+Predeterminado: 40pxo 2.5em para <h1>
+En móvil: 32pxo 2em o más pequeño, ya que ocupa demasiado espacio.
+En el escritorio: sube hasta 64px o 4em
+
+Texto funcional (subtítulos, navegación)
+Predeterminado: 12px hacia 14pxo 0.75em hacia 0.875em
+En el móvil: no bajes por debajo de los valores predeterminados, ya es muy pequeño
+En el escritorio: sube hasta 16px o 1em
+
+*/
+
+//font-size:;
+
+$Desktop: (
+	'maxtitulo': 4em,
+	'titulo': 2em,
+	'subtitulo': 1em,
+	'texto': 1.2em
+);
+
+$Movil:(//predeterminado
+	'maxtitulo': 2em,
+	'titulo': 1.5em,
+	'subtitulo': 0.875em,
+	'texto': 1em
+);
+
+
+@mixin font_Desktop($option){
+	font-size: map-get($Desktop,$option); 
+}
+
+@mixin font_Movil($option){
+	font-size: map-get($Movil,$option);
+}
+
+
+

@@ -1,9 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useFetch, fetchContainerComponent} from './useFetch';
 
+const checkStatusObject = (title, data) => {
+    return (
+    <>
+        {(Object.entries(data).length !== 0) && <div className="container-a">
+            <h2 id="title-list">{title}</h2>
+            <ul id="components-sub-list">
+                {data.map((value,index)=>(
+                    <li key={index}>{ value?.name || value?.title }</li>
+                ))}
+            </ul>
+        </div>}
+    </>
+    );
+}
+
 export const PeopleComponent = ( data, update )=>{
-    console.log("PeopleComponent");
-    console.log(data);
     const props = { "films":data.data.films || [], 
                     "homeworld":data.data.homeworld || '', 
                     "species":data.data.species || [], 
@@ -13,14 +26,13 @@ export const PeopleComponent = ( data, update )=>{
     const { dataURL, loading, error} = fetchContainerComponent(props, data.update);
 
 	return(
-		<div> 
-            <h1 id="character"> CHARACTER </h1>
+		<div id="conteiner-component"> 
             {error && <h1>Error: {error}</h1>}
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) &&
-            <div className="character-card">
+            <div className="card">
                 <h2>{data.data.name}</h2>
-                <div id="character-card-info">  
+                <div id="card-info">  
                     <p><strong>Birth Year:</strong> {data.data.birth_year}</p>
                     <p><strong>Gender:</strong> {data.data.gender}</p>
                     <p><strong>Height:</strong> {data.data.height} cm</p>
@@ -29,37 +41,18 @@ export const PeopleComponent = ( data, update )=>{
                     <p><strong>Eye Color:</strong> {data.data.eye_color}</p>
                     <p><strong>Hair Color:</strong> {data.data.hair_color}</p>
                 </div>
-                <h2>Homeworld</h2>
-                <p>{dataURL?.homeworld.name}</p>
 
-                <h2>Films</h2>
-                <ul>
-                    {dataURL.films.map((film,index)=>(
-                        <li key={index}> {film?.title} </li>
-                    ))}
-                    
-                </ul>
+                <h2 id="homeworld" >Homeworld</h2>
+                <p id="homeworld-text">{dataURL?.homeworld.name}</p>
+    
+                {checkStatusObject('Films',dataURL.films)}                
 
-                <h2>Species</h2>
-                <ul>
-                   {dataURL.species.map((specie,index)=>(
-                        <li key={index}>{specie?.name}</li>
-                    ))}
-                </ul>
+                {checkStatusObject('Species',dataURL.species)}
 
-                <h2>Starships</h2>
-                <ul>
-                    {dataURL.starships.map((star,index)=>(
-                        <li key={index}>{star?.name}</li>
-                    ))}
-                </ul>
+                {checkStatusObject('Starships',dataURL.starships)}
 
-                <h2>Vehicles</h2>
-                <ul>
-                    {dataURL.vehicles.map((vehicle,index)=>(
-                        <li key={index}>{vehicle?.name}</li>
-                    ))}
-                </ul>
+                {checkStatusObject('Vehicles',dataURL.vehicles)}                
+
             </div>
             }
 		</div>
@@ -76,14 +69,13 @@ export const FilmsComponent = ( data, update )=>{
     const { dataURL, loading, error} = fetchContainerComponent(props, data.update);
 
 	return(
-		<div> 
-            <h1 id="film"> FILMS </h1>
+		<div id="conteiner-component"> 
             {error && <h1>Error: {error}</h1>}
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) && 
-                <div className="film-card">
+                <div className="card">
                     <h2>{data.data.title}</h2>
-                    <div id="film-card-info">                        
+                    <div id="card-info">                        
                         <p><strong>Director:</strong> {data.data.title} </p>
                         <p><strong>Producer:</strong> {data.data.producer} </p>
                         <p><strong>Release Date:</strong> {data.data.release_date} </p>
@@ -91,40 +83,16 @@ export const FilmsComponent = ( data, update )=>{
                         <p><strong>Episode ID:</strong> {data.data.episode_id} </p>
                     </div>
 
-                    <h2>Characters</h2>
-                    <ul>
-                        {dataURL.characters.map((character,index)=>(
-                            <li key={index}> {character.name} </li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Character',dataURL.characters)}
 
-                    <h2>Planets</h2>
-                    <ul>
-                        {dataURL.planets.map((planet,index)=>(
-                            <li key={index}>{planet.name}</li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Planets',dataURL.planets)}
 
-                    <h2>Species</h2>
-                    <ul>
-                       {dataURL.species.map((specie,index)=>(
-                            <li key={index}>{specie.name}</li>
-                       ))}
-                    </ul>
-
-                    <h2>Starships</h2>
-                    <ul>
-                        {dataURL.starships.map((star,index)=>(
-                            <li key={index}>{star.name}</li>
-                        ))}
-                    </ul>
-
-                    <h2>Vehicles</h2>
-                    <ul>
-                        {dataURL.vehicles.map((vehicle,index)=>(
-                            <li key={index}>{vehicle.name}</li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Species',dataURL.species)}
+                    
+                    {checkStatusObject('Starships',dataURL.starships)}
+                
+                    {checkStatusObject('Vehicles',dataURL.vehicles)}
+                
                 </div>
             }
 		
@@ -140,14 +108,13 @@ export const PlanetsComponent = ( data, update )=>{
     const { dataURL, loading, error} = fetchContainerComponent(props, data.update);
 
 	return(
-		<div> 
-            <h1 id="planet"> PLANET </h1>
+		<div id="conteiner-component"> 
             {error && <h1>Error: {error}</h1>}
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) && 
-                <div className="planet-card">
+                <div className="card">
                 <h2>{data.data.name}</h2>
-                <div id="planet-card-info">
+                <div id="card-info">
                     <p><strong>Climate:</strong>{data.data.climate}</p>
                     <p><strong>Diameter:</strong>{data.data.diamater} km</p>
                     <p><strong>Gravity:</strong>{data.data.gravity}</p>
@@ -158,19 +125,10 @@ export const PlanetsComponent = ( data, update )=>{
                     <p><strong>Terrain:</strong>{data.data.terrain}</p>
                 </div>
 
-                <h2>Films</h2>
-                <ul>
-                    {dataURL.films.map((film,index)=>(
-                        <li key={index}> {film.title} </li>
-                    ))}
-                </ul>
+                {checkStatusObject('Films',dataURL.films)}
 
-                <h2>Residents</h2>
-                <ul>
-                    {dataURL.residents.map((resident,index)=>(
-                        <li key={index}> {resident.name} </li>
-                    ))}
-                </ul>
+                {checkStatusObject('Residents',dataURL.residents)}
+
             </div>
             }
 		
@@ -179,8 +137,6 @@ export const PlanetsComponent = ( data, update )=>{
 }
 
 export const SpeciesComponent = ( data, update )=>{
-    console.log("SpeciesComponent");
-    console.log(data);
     const props = { "homeworld":data.data.homeworld || '', 
                     "people":data.data.people || [], 
                     "films":data.data.films || []};
@@ -188,14 +144,13 @@ export const SpeciesComponent = ( data, update )=>{
     const { dataURL, loading, error} = fetchContainerComponent(props, data.update);
 
 	return(
-		<div> 
-            <h1 id="species"> SPECIES </h1>
+		<div id="conteiner-component"> 
             {error && <h2>Error: {error}</h2>}
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) && 
-            <div className="species-card">
+            <div className="card">
                 <h2>{data.data.name}</h2>
-                <div id="species-card-info">            
+                <div id="card-info">            
                     <p><strong>Language:</strong>{data.data.language}</p>
                     <p><strong>Average Height:</strong>{data.data.average_height} meters</p>
                     <p><strong>Average Lifespan:</strong>{data.data.average_lifespan} years</p>
@@ -206,22 +161,12 @@ export const SpeciesComponent = ( data, update )=>{
                     <p><strong>Skin Colors:</strong>{data.data.skin_colors}</p>
                 </div>
 
-                <h2>Homeworld</h2>
-                <p>{dataURL.homeworld.name}</p>
+                <h2 id="homeworld" >Homeworld</h2>
+                <p id="homeworld-text">{dataURL?.homeworld.name}</p>
 
-                <h2>People</h2>
-                <ul>
-                    {dataURL.people.map((p,index)=>(
-                        <li key={index}>{p.name}</li>
-                    ))}
-                </ul>
+                {checkStatusObject('Films',dataURL.films)}
 
-                <h2>Films</h2>
-                <ul>
-                    {dataURL.films.map((film,index)=>(
-                        <li key={index}>{film.title}</li>
-                    ))}
-                </ul>
+                {checkStatusObject('People',dataURL.people)}
             </div>
             }
         </div>
@@ -236,14 +181,13 @@ export const StarshipsComponent = ( data, update )=>{
     const { dataURL, loading, error} = fetchContainerComponent(props, data.update);
 
 	return(
-		<div> 
-              <h1 id="species"> STARSHIPS </h1>
+		<div id="conteiner-component"> 
               {error && <h2>Error: {error}</h2>}
               {loading && <h2>Loading...</h2>}
 		      {(Object.entries(dataURL).length !== 0) && 
-                 <div className="starship-card">
+                 <div className="card">
                     <h2>{data.data.name}</h2>
-                    <div id="statship-card-info">
+                    <div id="card-info">
                         <p><strong>MGLT:</strong>{data.data.MGLT}</p>
                         <p><strong>Consumables:</strong> {data.data.consumables} years</p>
                         <p><strong>Cargo Capacity:</strong>{data.data.cargo_capacity}</p>
@@ -258,19 +202,10 @@ export const StarshipsComponent = ( data, update )=>{
                         <p><strong>Starship Class:</strong>{data.data.starship_class}</p>
                     </div>
 
-                    <h2>Films</h2>
-                    <ul>
-                        {dataURL.films.map((film,index)=>(
-                            <li key={index}>{film.title}</li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Films',dataURL.films)}
 
-                    <h2>Pilots</h2>
-                    <ul>
-                        {dataURL.pilots.map((pilot,index)=>(
-                            <li key={index}>{pilot.name}</li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Pilots',dataURL.pilots)}
+                   
                 </div>
                 }
 		</div>
@@ -284,14 +219,13 @@ export const VehiclesComponent = ( data, update )=>{
     const { dataURL, loading, error} = fetchContainerComponent(props, data.update);
 
 	return(
-		<div> 
-              <h1 id="vehicles"> VEHICLES </h1>
+		<div  id="conteiner-component"> 
               {error && <h2>Error: {error}</h2>}
               {loading && <h2>Loading...</h2>}
               {(Object.entries(dataURL).length !== 0) && 
-                 <div className="vehicle-card">
-                    <h1>{data.data.name}</h1>
-                    <div id="vehicle-card-info">  
+                 <div className="card">
+                    <h2>{data.data.name}</h2>
+                    <div id="card-info">  
                         <p><strong>Cargo Capacity:</strong>{data.data.cargo_capacity}</p>
                         <p><strong>Consumables:</strong>{data.data.consumables} months</p>
                         <p><strong>Cost in Credits:</strong>{data.data.cost_in_credits}</p>
@@ -304,19 +238,10 @@ export const VehiclesComponent = ( data, update )=>{
                         <p><strong>Vehicle Class:</strong>{data.data.vehicle_class}</p>
                     </div>
 
-                    <h2>Films</h2>
-                    <ul>
-                        {dataURL.films.map((film,index)=>(
-                            <li key={index}>{film.title}</li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Films',dataURL.films)}
 
-                    <h2>Pilots</h2>
-                    <ul>
-                        {dataURL.pilots.map((pilot,index)=>(
-                            <li key={index}>{pilot.name}</li>
-                        ))}
-                    </ul>
+                    {checkStatusObject('Pilots',dataURL.pilots)}
+
                 </div>
                 }
         </div>

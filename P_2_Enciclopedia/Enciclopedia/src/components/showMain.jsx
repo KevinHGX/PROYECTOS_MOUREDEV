@@ -24,11 +24,13 @@ function ShowMain( props ) {
   const SelectedComponent = selectedKey ? componentsMap[selectedKey] : null;
 
   return (
-    <>
+    <div id="container-right">
+
       {error && <h2>Error: {error}</h2>}
       {loading && <h2>Loading...</h2>}
       {data && <SelectedComponent data={data} update={props.newFileMain}/>}
-    </>
+      
+    </div>
   );
 }
 

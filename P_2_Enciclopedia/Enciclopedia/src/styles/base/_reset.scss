@@ -1,0 +1,92 @@
+
+/*Restablecemos los properties*/
+:root{
+	--color-primary: black;
+	--color-second: white;
+	//typografia
+	--tipo--primary: "Quicksand", sans-serif;
+	--tipo--second: "JetBrain_Mono", sans-serif;
+}
+
+/*resetear modo Oscuro*/
+@media (prefers-colors-scheme: dark){
+	:root{
+		--color-primary: white;
+		--color-second: black;
+	}
+}
+
+/*Mayor contraste*/
+@media (prefers-colors-scheme: high){
+	:root{
+		--color-primary: black;
+		--color-second: white;
+	}
+}
+
+/*resetear file*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-shadow: border-box;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+/*resetear enlaces*/
+a{
+	display: block;
+	color: white;
+	text-decoration: none;
+}
+
+/*resetear imagenes*/
+img{
+	max-width: 100%;
+	width: 100%; 
+	display: block;
+}
+
+/*resetear listas*/
+li{
+	list-style: none; 
+}
+
+/*configurar selector*/
+::selector{
+	background: var(--color-primary);
+	color: var(--color-second);
+}
+
+button{
+	font-family: inherit; 
+	font-size: inherit;
+	background-color: transparent; 
+	color:inherit;
+	cursor: pointer;
+}
+
+/*configurar body*/
+body{  
+	background: var(--color-second);
+	font-size: 100%; 
+	font-family: "Quicksand", sans-serif; 
+	color: var(--color-primary);
+	width: 100%; 
+}
+
+h1,h2,h3,h4,h5{
+	font-family: "Quicksand", sans-serif;
+	font-size: 1.5em;//24px
+}
+
+
+
+
+
+
+
+

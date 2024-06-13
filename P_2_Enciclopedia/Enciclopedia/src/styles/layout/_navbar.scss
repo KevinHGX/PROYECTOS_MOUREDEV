@@ -1,0 +1,277 @@
+@use "../abstract/_fonts.scss";
+@use "../abstract/_colors.scss";
+@use "../base/_typography.scss";
+
+#root{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+body{
+	height:100%;
+  	padding:0;
+  	margin:0;
+  	box-sizing: border-box;
+	background: $fondo-color;
+}
+
+.App{
+	margin-top:10px;
+	width:85%;
+	display:flex;
+	flex-direction:column;
+	padding: 10px 15px;
+	background:$main-bg-color;
+
+	.container_up{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		padding-bottom: 10px;
+
+		#title{
+			@include font_Desktop('maxtitulo');
+			font-family: "Montserrat Subrayada", sans-serif;
+  			font-weight: 700;
+  			font-style: normal;
+			color:white;
+		}
+
+		.navegacion{
+			#navegacion-list{
+				display:flex;
+				flex-direction:row;
+				gap:5px;
+				justify-content: space-around;
+				align-items: center;
+
+				#selected{
+						background:white;
+						color:black;
+						font-weight: 500;					
+				}
+
+				li{
+					@include font_Desktop('subtitulo');
+					font-family: "IBM Plex Mono", monospace;
+  					font-weight: 200;
+  					font-style: normal;
+					color:white;
+					transition: 0.5s ease-out;
+					padding: 5px 10px;
+
+					&:hover{
+						cursor: pointer;
+						background:white;
+						color:black;
+						transition: 0.5s ease-in;
+
+					}
+				}
+			}
+		}
+
+	}
+
+	#container-down{
+		height:70vh;
+		max-height:70vh;
+		display:flex;
+		gap:3px;
+		flex-direction:row;
+		justify-contenr:space-between;
+		align-items:center;
+
+		#container-left{
+			flex-basis:300px;
+			background: $main-s-bg-color;
+			padding: 10px 0px;
+
+			#subnavegacion-list{
+				#selected{//item seleccionado de AsideList
+						background: black;
+						color:white;
+  						font-weight: 500;					
+				}
+
+				li{
+					@include font_Desktop('subtitulo');
+					font-family: "IBM Plex Mono", monospace;
+  					font-weight: 200;
+  					font-style: normal;
+					padding: 1.5px 0px;
+
+					display:flex;
+					justify-content:center;
+					align-items:center;
+					background: white;
+					transition: 0.5s ease-out;
+
+					&:hover{
+						background: black;
+						color:white;
+  						font-weight: 500;
+						cursor:pointer;
+  						transition: 0.5s ease-in;
+					}
+				}
+			}
+
+			#buttons{
+				margin-top:1rem;
+				display: flex;
+				flex-direction:row;
+				justify-content:space-around;
+				align-items:center;
+
+				button{
+					background:black;
+					color:white;
+					padding: 0px 10px;
+
+					&:hover{
+						cursor:pointer;
+					}
+				}
+
+			}
+
+		}
+
+		#container-right{
+			width:100%;
+			max-width:100%;
+			height:100%;
+			max-height:100%;
+			overflow:auto;
+
+			&::-webkit-scrollbar-track {
+      			background: #f0f0f0;
+    		}
+
+    		&::-webkit-scrollbar-thumb {
+     		 	background: #888;
+      			border-radius: 6px;
+      			border: 3px solid #f0f0f0;
+    		}
+
+
+			#conteiner-component{
+				padding-left:7px;
+				width:95%;
+				display:flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				gap:5px;
+
+				#title{
+					@include font_Desktop('subtitulo');
+					display:flex;
+					justify-content:center;
+					align-items:center;
+				}
+
+				.card{
+					width:100%;
+					display:flex;
+					flex-direction:column;
+					justify-content:center;
+					align-items:center;
+					padding:10px;
+
+					h2{
+						display:flex;
+						justify-content:center;
+						align-items:center;
+						@include font_Desktop('titulo');
+						font-family: "Lato", sans-serif;
+  						font-weight: 400;
+  						font-style: normal;
+						color:white;
+					}
+
+					#card-info{
+						padding:2px 5px;
+						background:gray;
+						width:100%;
+						max-width: 100%;
+						margin:20px auto;
+						display:grid;
+						justify-content:center;
+						align-items:center;
+						grid-gap:5px;
+						grid-template-columns: repeat(2, 1fr);
+
+						p{
+							@include font_Desktop('texto');
+							font-family: "Roboto", sans-serif;
+  							font-weight: 200;
+  							font-style: normal;
+  							color: white;
+
+						}
+					}
+
+					#homeworld{
+						@include font_Desktop('titulo');
+						font-family: "Lato", sans-serif;
+  						font-weight: 400;
+  						font-style: normal;
+						color:white;
+					}
+					#homeworld-text{
+						@include font_Desktop('texto');
+						font-family: "Roboto", sans-serif;
+  						font-weight: 200;
+  						font-style: normal;
+						color:white;
+					}
+
+					.container-a{
+						width:80%;
+						display:flex;
+						flex-direction:column;
+						justify-content:center;
+						align-items:center;
+						overflow:hidden;
+
+						#title-list{
+							@include font_Desktop('titulo');
+							font-family: "Lato", sans-serif;
+  							font-weight: 400;
+  							font-style: normal;
+							color:white;
+						}
+
+						#components-sub-list{
+							flex-gap:5px;
+							display:flex;
+							flex-direction: row;
+							justify-content: space-around;
+							align-items: center;
+
+							li{
+								background:white;
+								@include font_Desktop('texto');
+								font-family: "Roboto", sans-serif;
+  								font-weight: 200;
+  								font-style: normal;
+								color:black;
+							}
+
+						}
+					}
+
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
