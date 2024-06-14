@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useFetch } from './useFetch';
 import { debounce } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { faCaretRight, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function AsideList({ url, setNewURL, setNewFileMain, ckey }) {
   const [selectedItem, setSelectedItem] = useState(0);
@@ -49,12 +49,14 @@ function AsideList({ url, setNewURL, setNewFileMain, ckey }) {
 
   return (
     <div id="container-left">
-      <div>
-        <input
+      {(keyNav !== 'films') && <div id="search-list">
+        <FontAwesomeIcon id="iconSearch" icon={faMagnifyingGlass} />
+        <input id="inputSearch"
           type="text"
           placeholder={`Buscar en ${keyNav}`}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
+        </div>}
         <ul id="subnavegacion-list">
           {error && <li>Error: {error}</li>}
           {loading && <li>Loading...</li>}
@@ -74,7 +76,6 @@ function AsideList({ url, setNewURL, setNewFileMain, ckey }) {
             <button onClick={() => handleShowMore("previous")}>NEXT</button>
           </div>
         }
-      </div>
     </div>
   );
 }
