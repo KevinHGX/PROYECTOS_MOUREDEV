@@ -65,6 +65,6 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
 ### Search 
 | Search |  
 |----------|
-| ![Descripción de la Imagen 2](./P_2_Enciclopedia/Enciclopedia/src/assets/search3.png)  |
+| ![Descripción de la Imagen 2](./P_2_Enciclopedia/Enciclopedia/src/assets/search1.png)  |
 
 
