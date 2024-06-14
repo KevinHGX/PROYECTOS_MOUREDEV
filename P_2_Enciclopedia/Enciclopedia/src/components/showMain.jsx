@@ -1,10 +1,12 @@
 import { useState, useEffect} from 'react';
-import { useFetch } from './useFetch';
+import { useFetch, useFetchMain } from './useFetch';
 import { FilmsComponent, PeopleComponent, PlanetsComponent, SpeciesComponent, StarshipsComponent, VehiclesComponent } from './selectedComponent';
 
 //                people, https//por parte de Aside
 function ShowMain( props ) {
-  const { data, loading, error } = useFetch(props.newFileMain);
+  console.log("ShowMain: ",props.newFileMain);
+  const { data, loading, error } = useFetchMain(props.newFileMain);
+  console.log(data);
   const [file,setFile] = useState(props.newFileMain);
   const [selectedKey, setSelectedKey] = useState(props.ckey);
 

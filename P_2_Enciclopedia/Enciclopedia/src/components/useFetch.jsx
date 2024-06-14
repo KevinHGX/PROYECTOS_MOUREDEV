@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import isEqual from 'lodash.isequal';
 import PropTypes from 'prop-types';
 
-export function useFetch(url) {
+export function useFetchMain(url) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,6 +19,31 @@ export function useFetch(url) {
   }, [url]);
 
    return { data, loading, error };
+}
+
+export function useFetch(initialUrl) {
+  const [url, setUrl] = useState(initialUrl);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    setLoading(true);
+    fetch(url, { signal: controller.signal })
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
+
+    return () => controller.abort();
+  }, [url]);
+
+  const updateUrl = useCallback((newUrl) => {
+    setUrl(newUrl);
+  }, []);
+
+  return { data, loading, error, updateUrl };
 }
 
 export function fetchContainerComponent(props, update ) {

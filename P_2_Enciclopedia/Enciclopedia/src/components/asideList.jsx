@@ -1,73 +1,87 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useFetch } from './useFetch';
-
+import { debounce } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
-
 
 function AsideList({ url, setNewURL, setNewFileMain, ckey }) {
   const [selectedItem, setSelectedItem] = useState(0);
   const [keyNav, setKeyNav] = useState(ckey);
-  const { data, loading, error } = useFetch(url);
+  const [searchTerm, setSearchTerm] = useState('');
+  const { data, loading, error, updateUrl } = useFetch(url);
 
-  // Almacenar el contenido de result
-  let results = (data) ? data.results : [];
-  console.log(results);
+  // Function to fetch data based on search term with debounce
+  const debounceFetch = useCallback(debounce((term) => {
+    const searchUrl = term ? `${url}?search=${term}` : url;
+    updateUrl(searchUrl);
+  }, 500), [url, updateUrl]);
 
   useEffect(() => {
-    let aux;
+    debounceFetch(searchTerm);
+  }, [searchTerm, debounceFetch]);
+
+  let results = data ? data.results : [];
+
+  useEffect(() => {
     if (results.length > 0) {
       const firstValue = results[0];
-      aux = firstValue.url; 
-      setNewFileMain(aux);
+      setNewFileMain(firstValue.url);
       setSelectedItem(0);
     } else {
       console.log("El array está vacío.");
     }
-
     setKeyNav(ckey);
-  }, [url, data]);
+  }, [results, setNewFileMain, ckey]);
 
   const handleShowMore = (current) => {
-    if (data && data?.next !== null && current !== 'next') {
+    if (data && data.next !== null && current !== 'next') {
       setNewURL(data.next);
     }
-
-    if (data && data?.previous !== null && current !== 'previous') {
+    if (data && data.previous !== null && current !== 'previous') {
       setNewURL(data.previous);
     }
   };
 
   const updateURLIndex = (url, index) => {
     setSelectedItem(index);
-    console.log("click: ", index);
-    setNewFileMain(url); // Esta función no necesita un return statement
+    setNewFileMain(url);
   };
 
   return (
     <div id="container-left">
-      <ul id="subnavegacion-list">
-        {error && <li>Error: {error}</li>}
-        {loading && <li>Loading...</li>}
-        {results.map((item, index) => (
-          <li
-            key={item?.name || item?.title}
-            onClick={() => updateURLIndex(item.url, index)}
-            id={`${selectedItem === index ? 'selected' : ''}`}
-          >
-            { (selectedItem === index)  && <FontAwesomeIcon icon={faCaretRight} />}
-            <p>{item?.name || item?.title}</p>
-          </li>
-        ))}
-      </ul>
-      {(keyNav !== 'films') && 
-        <div id="buttons">      
-          <button onClick={() => handleShowMore("next")}>PREV</button>
-          <button onClick={() => handleShowMore("previous")}>NEXT</button>
-        </div>
-      }
+      <div>
+        <input
+          type="text"
+          placeholder={`Buscar en ${keyNav}`}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <ul id="subnavegacion-list">
+          {error && <li>Error: {error}</li>}
+          {loading && <li>Loading...</li>}
+          {results.map((item, index) => (
+            <li
+              key={item?.name || item?.title}
+              onClick={() => updateURLIndex(item.url, index)}
+              id={`${selectedItem === index ? 'selected' : ''}`}>
+              { (selectedItem === index)  && <FontAwesomeIcon icon={faCaretRight} />}
+              <p>{item?.name || item?.title}</p>
+            </li>
+          ))}
+        </ul>
+        {(keyNav !== 'films') && 
+          <div id="buttons">      
+            <button onClick={() => handleShowMore("next")}>PREV</button>
+            <button onClick={() => handleShowMore("previous")}>NEXT</button>
+          </div>
+        }
+      </div>
     </div>
   );
 }
 
 export default AsideList;
+
+
+/*
+placeholder={`Buscar en ${keyNav}`}
+*/
