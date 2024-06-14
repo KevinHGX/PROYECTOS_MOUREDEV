@@ -49,4 +49,10 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
  * - OPCIONAL: Foto de cada personaje.
  */
 
- ## React | en desarrollo
+ ##REACT | VITE
+ | Characters | Planets | Films |
+|----------|----------|----------|
+| ![Descripción de la Imagen 1](./P_2_Enciclopedia/Enciclopedia/src/assets/Characters.png) | ![Descripción de la Imagen 3](./P_2_Enciclopedia/Enciclopedia/src/assets/Planets.png)  
+![Descripción de la Imagen 2](./P_2_Enciclopedia/Enciclopedia/src/assets/films.png) |
+
+
