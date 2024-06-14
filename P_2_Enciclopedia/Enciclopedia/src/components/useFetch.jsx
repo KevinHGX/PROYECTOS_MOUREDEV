@@ -8,11 +8,14 @@ export function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(url)
+    const controller = new AbortController();
+    fetch(url, {signal: controller.signal})
          .then((response) => response.json())
          .then((json) => setData(json))
          .catch((error) => setError(error))
          .finally(() => setLoading(false));
+
+         return () => controller.abort();
   }, [url]);
 
    return { data, loading, error };

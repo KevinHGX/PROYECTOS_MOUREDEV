@@ -13,23 +13,26 @@ body{
   	padding:0;
   	margin:0;
   	box-sizing: border-box;
-	background: $fondo-color;
+	background:$main-bg-color;
 }
 
 .App{
-	margin-top:10px;
-	width:85%;
+	width:100%;
+	max-height:100vh;
+	height:100vh;
 	display:flex;
 	flex-direction:column;
-	padding: 10px 15px;
-	background:$main-bg-color;
+	//padding: 10px 15px;
+	background:black;
 
 	.container_up{
 		display:flex;
 		flex-direction:column;
 		justify-content:center;
 		align-items:center;
-		padding-bottom: 10px;
+		padding-bottom: 20px;
+		background: black;
+		position:relative;
 
 		#title{
 			@include font_Desktop('maxtitulo');
@@ -37,6 +40,33 @@ body{
   			font-weight: 700;
   			font-style: normal;
 			color:white;
+
+			&:after{
+				content:'';
+				position:absolute;
+				z-index:2;
+				background:white;
+				height: 10px;
+				width:100px;
+				top:26%;
+				left: 20%;
+				transition: 0.60s ease-out;
+
+			}
+
+			&:before{	
+				content:'';
+				position:absolute;
+				z-index:2;
+				background:white;
+				height: 10px;
+				width:100px;
+				top:26%;
+				left: 70%;
+				transition: 0.60s ease-out;
+
+			}
+
 		}
 
 		.navegacion{
@@ -56,20 +86,39 @@ body{
 				li{
 					@include font_Desktop('subtitulo');
 					font-family: "IBM Plex Mono", monospace;
+					background: none;
+  					border: 2px solid;
   					font-weight: 200;
   					font-style: normal;
 					color:white;
-					transition: 0.5s ease-out;
 					padding: 5px 10px;
+					transition: 0.25s;
 
-					&:hover{
+					&:hover,
+					&:focus {
+						font-weight: 400;
 						cursor: pointer;
-						background:white;
-						color:black;
-						transition: 0.5s ease-in;
-
+  						box-shadow: inset 6.5em 0 0 0 white;
+  						color:black;
 					}
+
+					
 				}
+			}
+		}
+
+		&:hover{
+			cursor:pointer;
+
+			& #title:after{
+				padding-left:100px;
+				left: 10.3%;
+				transition: 0.60s ease-out;
+			}
+
+			& #title:before{
+				padding-right:100px;
+				transition: 0.60s ease-out;
 			}
 		}
 
@@ -79,21 +128,35 @@ body{
 		height:70vh;
 		max-height:70vh;
 		display:flex;
-		gap:3px;
+		//gap:3px;
 		flex-direction:row;
 		justify-contenr:space-between;
-		align-items:center;
+		align-items:start;
 
 		#container-left{
+			margin-left: 100px;
+			height:70vh;
+			padding: 1rem 2rem;
 			flex-basis:300px;
-			background: $main-s-bg-color;
-			padding: 10px 0px;
+			clip-path: polygon(100% 0, 100% 79%, 50% 100%, 0 79%, 0 0);
+			background: white;
+			//padding: 10px 0px;
+			
 
 			#subnavegacion-list{
+
+				margin-top:5px;
+
 				#selected{//item seleccionado de AsideList
 						background: black;
 						color:white;
-  						font-weight: 500;					
+  						font-weight: 500;	
+						clip-path: polygon(93% 0, 100% 50%, 93% 100%, 0 100%, 0 0);
+
+				}
+
+				#no-selected{
+					background:gray;
 				}
 
 				li{
@@ -102,20 +165,25 @@ body{
   					font-weight: 200;
   					font-style: normal;
 					padding: 1.5px 0px;
-
 					display:flex;
-					justify-content:center;
+					flex-direction:row;
+					justify-content:start;
 					align-items:center;
 					background: white;
-					transition: 0.5s ease-out;
+					transition: 0.25s ease-out;
 
-					&:hover{
-						background: black;
+					p{
+						margin-left: 4px;
+					}
+
+					&:hover, &:focus{
+						clip-path: polygon(93% 0, 100% 50%, 93% 100%, 0 100%, 0 0);
+						box-shadow: inset 15em 0 0 0 black;
 						color:white;
   						font-weight: 500;
 						cursor:pointer;
-  						transition: 0.5s ease-in;
 					}
+
 				}
 			}
 
@@ -127,12 +195,18 @@ body{
 				align-items:center;
 
 				button{
-					background:black;
-					color:white;
-					padding: 0px 10px;
+					background:none;
+					color:black;
+					padding: 5px 10px;
+					transition: 0.25s;
+					border: 2px solid;
 
-					&:hover{
-						cursor:pointer;
+					&:hover,
+					&:focus {
+						font-weight: 400;
+						cursor: pointer;
+  						box-shadow: inset 6.5em 0 0 0 black;
+  						color:white;
 					}
 				}
 
@@ -142,37 +216,31 @@ body{
 
 		#container-right{
 			width:100%;
-			max-width:100%;
 			height:100%;
 			max-height:100%;
 			overflow:auto;
+			//animation: sliderRight 2s ease-out;
 
-			&::-webkit-scrollbar-track {
-      			background: #f0f0f0;
-    		}
+			&::-webkit-scrollbar{
+				width:7px;
+				background:white;
 
-    		&::-webkit-scrollbar-thumb {
-     		 	background: #888;
-      			border-radius: 6px;
-      			border: 3px solid #f0f0f0;
-    		}
+				&-thumb{
+					background:#FDA300;
+				}
+			}
 
 
 			#conteiner-component{
-				padding-left:7px;
-				width:95%;
+				width:100%;
 				display:flex;
 				flex-direction:column;
 				justify-content:center;
 				align-items:center;
-				gap:5px;
+				//gap:5px;
+				position:relative;
 
-				#title{
-					@include font_Desktop('subtitulo');
-					display:flex;
-					justify-content:center;
-					align-items:center;
-				}
+
 
 				.card{
 					width:100%;
@@ -180,25 +248,38 @@ body{
 					flex-direction:column;
 					justify-content:center;
 					align-items:center;
-					padding:10px;
+					
 
-					h2{
+					#title{
 						display:flex;
 						justify-content:center;
 						align-items:center;
 						@include font_Desktop('titulo');
 						font-family: "Lato", sans-serif;
-  						font-weight: 400;
+  						font-weight: 700;
   						font-style: normal;
 						color:white;
+						width:100%;
+						max-width:100%;
+						background:black;
+						padding: 10px 0px;
+						position: sticky;
+						top:0px;
+
+						z-index:10;
 					}
 
 					#card-info{
-						padding:2px 5px;
-						background:gray;
+						padding:50px 100px;
+						background:linear-gradient(135deg,rgba(255,255,255, 0.1), rgba(2255,255,255,0));
+						-webkit-backdrop-filter: blur(20px);
+						backdrop-filter: blur(20px);
+						box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+						border: 1px solid rgba(255,255,255,0.18);
+						border-radius: 0 0 32px 32px;
+						margin-bottom: 20px;
 						width:100%;
-						max-width: 100%;
-						margin:20px auto;
+						max-width: 50%;
 						display:grid;
 						justify-content:center;
 						align-items:center;
@@ -215,6 +296,25 @@ body{
 						}
 					}
 
+					#description{
+						h3{
+							@include font_Desktop('titulo');
+							font-family: "Lato", sans-serif;
+	  						font-weight: 400;
+	  						font-style: normal;
+	  						color:white;
+	  						text-align:center;
+	  						margin-bottom:5px;
+						}
+
+						p{
+							color:white;
+							max-width: 60ch;
+						}
+
+						padding-bottom:1rem;
+					}
+
 					#homeworld{
 						@include font_Desktop('titulo');
 						font-family: "Lato", sans-serif;
@@ -225,53 +325,104 @@ body{
 					#homeworld-text{
 						@include font_Desktop('texto');
 						font-family: "Roboto", sans-serif;
-  						font-weight: 200;
+  						font-weight: 400;
+  						font-style: normal;
+  						background:white;
+  						padding:5px 20px;
+  						clip-path: polygon(0 0, 100% 0, 95% 50%, 100% 100%, 0 100%, 5% 50%);
+						color:black;
+						margin-bottom:2rem;
+					}
+
+					#title-list{
+						@include font_Desktop('titulo');
+						font-family: "Lato", sans-serif;
+  						font-weight: 400;
   						font-style: normal;
 						color:white;
 					}
 
 					.container-a{
-						width:80%;
-						display:flex;
-						flex-direction:column;
-						justify-content:center;
-						align-items:center;
-						overflow:hidden;
+						width:40%;
+					    overflow: hidden;
+					    display: flex;
+					    flex-direction:row;
+					    justify-content:center;
+					    align-items:center;
+					    position: relative;
+					    margin-bottom:2rem;
 
-						#title-list{
-							@include font_Desktop('titulo');
-							font-family: "Lato", sans-serif;
-  							font-weight: 400;
-  							font-style: normal;
-							color:white;
-						}
 
-						#components-sub-list{
-							flex-gap:5px;
-							display:flex;
-							flex-direction: row;
-							justify-content: space-around;
-							align-items: center;
+						.components-sub-list{
+							display: flex;
+						    justify-content: center;
+						    align-items: center;
+						    list-style: none;
+
 
 							li{
-								background:white;
+  								background:none;
+  								border: 1px solid white;
+  								//padding: 0px 20px;
 								@include font_Desktop('texto');
-								font-family: "Roboto", sans-serif;
-  								font-weight: 200;
-  								font-style: normal;
-								color:black;
+								flex: 0 0 auto;
+							    width: 150px; /* Ajusta el ancho según sea necesario */
+							    background: none;
+							    font-family: "Roboto", sans-serif;
+							    font-weight: 200;
+							    color: white;
+							    text-align: center;
+							    overflow:hidden;
 							}
 
 						}
+
+						.list-animation{
+						    animation: slide 15s infinite linear;
+
+						    &:hover{						    	
+								cursor:pointer;
+								animation-play-state: paused;
+						    }
+						}
+
+
+						&:before{
+							position:absolute;
+							content:'';
+							top:0;
+							left:0;
+							width:50px;
+							height:100%;
+							background:linear-gradient(to left, rgba(255,255,255,0),black);
+							z-index:2;
+						}
+
+						&:after{
+							position:absolute;
+							content:'';
+							top:0;
+							right:0;
+							width:50px;
+							height:100%;
+							background:linear-gradient(to right, rgba(255,255,255,0),black);
+							z-index:2;
+						}
 					}
-
-
 				}
-
 			}
-
 		}
-
 	}
+}
 
+
+/*ANIMATIONS*/
+@keyframes slide{
+  from{
+    transform: translateX(0%);
+  }
+  
+  to{
+    transform: translateX(-100%);
+  }
 }

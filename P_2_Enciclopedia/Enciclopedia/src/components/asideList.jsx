@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useFetch } from './useFetch';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+
+
 function AsideList({ url, setNewURL, setNewFileMain, ckey }) {
   const [selectedItem, setSelectedItem] = useState(0);
   const [keyNav, setKeyNav] = useState(ckey);
@@ -51,7 +55,8 @@ function AsideList({ url, setNewURL, setNewFileMain, ckey }) {
             onClick={() => updateURLIndex(item.url, index)}
             id={`${selectedItem === index ? 'selected' : ''}`}
           >
-            {item?.name || item?.title}
+            { (selectedItem === index)  && <FontAwesomeIcon icon={faCaretRight} />}
+            <p>{item?.name || item?.title}</p>
           </li>
         ))}
       </ul>

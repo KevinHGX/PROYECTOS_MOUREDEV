@@ -1,18 +1,49 @@
 import { useState, useEffect } from 'react';
 import { useFetch, fetchContainerComponent} from './useFetch';
 
+export function truncateText(value, index) {
+    const limit = 15; // Define el límite de caracteres
+
+    let aux = value?.name || value?.title || ''; // Valor por defecto
+
+    if (value?.name && value.name.length > limit) {
+        aux = value.name.slice(0, limit - 3) + '...';
+    } else if (value?.title && value.title.length > limit) {
+        aux = value.title.slice(0, limit - 3) + '...';
+    }
+
+    return (
+        <li key={index}>{aux}</li>
+    );
+}
+
+
 const checkStatusObject = (title, data) => {
     return (
     <>
-        {(Object.entries(data).length !== 0) && <div className="container-a">
-            <h2 id="title-list">{title}</h2>
-            <ul id="components-sub-list">
-                {data.map((value,index)=>(
-                    <li key={index}>{ value?.name || value?.title }</li>
-                ))}
-            </ul>
-        </div>}
-    </>
+            {Object.entries(data).length !== 0 && <h2 id="title-list">{title}</h2>}
+            {Object.entries(data).length !== 0 && (
+                <div className="container-a">
+                    {Object.entries(data).length > 3 &&
+                    <ul className="components-sub-list list-animation">
+                        {data.map((value, index) => (
+                            truncateText(value,index)
+                        ))},
+                        {data.map((value, index) => (
+                            truncateText(value,index)
+                        ))}
+                    </ul>}
+
+                    {Object.entries(data).length <= 3 && 
+                    <ul className="components-sub-list">
+                        {data.map((value, index) => (
+                            truncateText(value,index)
+                        ))}
+                    </ul>}
+
+                </div>
+            )}
+        </>
     );
 }
 
@@ -31,7 +62,7 @@ export const PeopleComponent = ( data, update )=>{
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) &&
             <div className="card">
-                <h2>{data.data.name}</h2>
+                <h2 id="title">{data.data.name}</h2>
                 <div id="card-info">  
                     <p><strong>Birth Year:</strong> {data.data.birth_year}</p>
                     <p><strong>Gender:</strong> {data.data.gender}</p>
@@ -74,13 +105,17 @@ export const FilmsComponent = ( data, update )=>{
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) && 
                 <div className="card">
-                    <h2>{data.data.title}</h2>
+                    <h2 id="title">{data.data.title}</h2>
                     <div id="card-info">                        
                         <p><strong>Director:</strong> {data.data.title} </p>
                         <p><strong>Producer:</strong> {data.data.producer} </p>
                         <p><strong>Release Date:</strong> {data.data.release_date} </p>
-                        <p><strong>Opening Crawl:</strong> {data.data.opening_crawl} </p>
                         <p><strong>Episode ID:</strong> {data.data.episode_id} </p>
+                    </div>
+
+                    <div id="description">
+                        <h3>Open Crawl</h3>
+                        <p>{data.data.opening_crawl} </p>
                     </div>
 
                     {checkStatusObject('Character',dataURL.characters)}
@@ -113,7 +148,7 @@ export const PlanetsComponent = ( data, update )=>{
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) && 
                 <div className="card">
-                <h2>{data.data.name}</h2>
+                <h2 id="title">{data.data.name}</h2>
                 <div id="card-info">
                     <p><strong>Climate:</strong>{data.data.climate}</p>
                     <p><strong>Diameter:</strong>{data.data.diamater} km</p>
@@ -149,7 +184,7 @@ export const SpeciesComponent = ( data, update )=>{
             {loading && <h2>Loading...</h2>}
             {(Object.entries(dataURL).length !== 0) && 
             <div className="card">
-                <h2>{data.data.name}</h2>
+                <h2 id="title">{data.data.name}</h2>
                 <div id="card-info">            
                     <p><strong>Language:</strong>{data.data.language}</p>
                     <p><strong>Average Height:</strong>{data.data.average_height} meters</p>
@@ -186,7 +221,7 @@ export const StarshipsComponent = ( data, update )=>{
               {loading && <h2>Loading...</h2>}
 		      {(Object.entries(dataURL).length !== 0) && 
                  <div className="card">
-                    <h2>{data.data.name}</h2>
+                    <h2 id="title">{data.data.name}</h2>
                     <div id="card-info">
                         <p><strong>MGLT:</strong>{data.data.MGLT}</p>
                         <p><strong>Consumables:</strong> {data.data.consumables} years</p>
@@ -224,7 +259,7 @@ export const VehiclesComponent = ( data, update )=>{
               {loading && <h2>Loading...</h2>}
               {(Object.entries(dataURL).length !== 0) && 
                  <div className="card">
-                    <h2>{data.data.name}</h2>
+                    <h2 id="title">{data.data.name}</h2>
                     <div id="card-info">  
                         <p><strong>Cargo Capacity:</strong>{data.data.cargo_capacity}</p>
                         <p><strong>Consumables:</strong>{data.data.consumables} months</p>
