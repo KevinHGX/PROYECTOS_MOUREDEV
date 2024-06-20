@@ -1,8 +1,7 @@
 # React + Vite
 
-- ## CAPTURAS
+## CAPTURAS
 
-   ##REACT | VITE
 | Characters | Planets |
 |----------|----------|
 | ![Descripción de la Imagen 1](./src/assets/Characters.png) | ![Descripción de la Imagen 3](./src/assets/Planets.png) |
