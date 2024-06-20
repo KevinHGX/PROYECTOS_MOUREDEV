@@ -1,8 +1,21 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- ## CAPTURAS
 
-Currently, two official plugins are available:
+   ##REACT | VITE
+| Characters | Planets |
+|----------|----------|
+| ![Descripción de la Imagen 1](./Enciclopedia/src/assets/Characters.png) | ![Descripción de la Imagen 3](./Enciclopedia/src/assets/Planets.png) |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Films | Species |
+|----------|----------|
+| ![Descripción de la Imagen 2](./Enciclopedia/src/assets/films.png)  | ![Descripción de la Imagen 2](./Enciclopedia/src/assets/species.png)  |
+
+| Vehicles | Starships |
+|----------|----------|
+| ![Descripción de la Imagen 2](./Enciclopedia/src/assets/vehicles.png)  | ![Descripción de la Imagen 2](./Enciclopedia/src/assets/starships.png)  |
+
+### Search 
+| Search |  
+|----------|
+| ![Descripción de la Imagen 2](./Enciclopedia/src/assets/search1.png)  |
