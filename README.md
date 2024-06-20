@@ -99,5 +99,5 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
  *   a la pantalla inicial.
  */
 
-## REACT | en planeacion...
+## REACT | En Desarrollo...
 
