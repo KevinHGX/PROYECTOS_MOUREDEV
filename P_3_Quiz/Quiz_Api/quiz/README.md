@@ -3,8 +3,8 @@
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 # Descripcion:
-##QUIZFY
-QUIZFY es una aplicación en desarrollo que tiene como objetivo proporcionar cuestionarios interactivos y variados para cada ocasión en que se juegue.
+## QUIZFY
+Aplicación en desarrollo que tiene como objetivo proporcionar cuestionarios interactivos y variados para cada ocasión en que se juegue.
 
 ## Tecnologías Implementadas
 ### Frontend 
