@@ -6,6 +6,11 @@ This template provides a minimal setup to get React working in Vite with HMR and
 ## QUIZFY
 Aplicación en desarrollo que tiene como objetivo proporcionar cuestionarios interactivos y variados para cada ocasión en que se juegue.
 
+## Diseño Preliminar
+A partir de este momoento se creo una plantilla de como se espera que sea el diseño del proyecto, para dar una idea asi como los colores elejidos.
+
+[Quiz](../Captura/QUIZFY.pdf)
+
 ## Tecnologías Implementadas
 ### Frontend 
   - React con Vite: Utilizados para la creación de la interfaz de usuario.
