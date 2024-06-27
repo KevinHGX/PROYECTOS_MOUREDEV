@@ -9,7 +9,7 @@ Aplicación en desarrollo que tiene como objetivo proporcionar cuestionarios int
 ## Diseño Preliminar
 A partir de este momoento se creo una plantilla de como se espera que sea el diseño del proyecto, para dar una idea asi como los colores elejidos.
 
-[Quiz](../Captura/QUIZFY.pdf)
+[Quizfy.pdf](../Captura/QUIZFY.pdf)
 
 ## Tecnologías Implementadas
 ### Frontend 
