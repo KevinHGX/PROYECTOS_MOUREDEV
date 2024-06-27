@@ -7,15 +7,16 @@ This template provides a minimal setup to get React working in Vite with HMR and
 QUIZFY es una aplicación en desarrollo que tiene como objetivo proporcionar cuestionarios interactivos y variados para cada ocasión en que se juegue.
 
 ## Tecnologías Implementadas
-** Frontend **
+### Frontend 
   - React con Vite: Utilizados para la creación de la interfaz de usuario.
   - Frame-Motion: Para animaciones fluidas y atractivas.
   - FontAwesome: Para iconos y gráficos.
   - Dotenv: Para manejar variables de entorno en el frontend.
   - React-Router-Dom: Para la gestión de la navegación en la aplicación.
   - Sass: Para el preprocesamiento de CSS.
+  - Axios: Para realizar solicitudes HTTP.
 
-** Backend **
+### Backend 
   - Express: Framework para el desarrollo del servidor.
   - Axios: Para realizar solicitudes HTTP.
   - CORS: Middleware para permitir el intercambio de recursos entre dominios.
