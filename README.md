@@ -84,5 +84,5 @@ La práctica incluye la implementación de diversos proyectos propuestos por Mou
  *   a la pantalla inicial.
  */
 
-## REACT | En Desarrollo...
-
+## REACT | Aun Desarrollo, (implementacion de Consulta API)
+![Parte Inicial "BIENVENIDA"](./P_3_Quiz/Quiz_Api/Captura/Inicio.png) 
