@@ -1,0 +1,16 @@
+### Request 1
+POST http://localhost:4000/api/user HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":"Kevin",
+  "category":"Video Games",
+  "level":"hard",
+  "score":270
+}
+
+
+### Request 2
+GET http://localhost:4000/api/user HTTP/1.1
+Content-Type: application/json
+

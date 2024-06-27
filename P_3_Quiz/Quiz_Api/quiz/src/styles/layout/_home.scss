@@ -1,0 +1,60 @@
+@use "../abstract/fonts";
+@use "../abstract/colors";
+@use "../themes/position";
+
+.space{
+    width:100%;
+    height:100vh;
+    background-size: cover;
+}
+
+#container-home{
+    @include Position_Center;
+    
+    #title{
+        text-align: center;
+        color:var(--color-gray);
+        font-weight: 500;
+        font-size: var(--font-size-base);
+        line-height: 1;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+
+        span{
+            color:var(--color-select-pink);
+        }
+
+    }
+ 
+    .description{
+        margin-top:2rem;
+        width: 66ch;
+        margin:auto;
+
+        p,h3{
+            @include Space_Grotesk(500);
+            text-align: center;
+            font-size: var(--font-size-lg);
+            color: var(--color-gray);
+        }
+    }
+
+    #btn-random{
+        margin-top: clamp(.5rem,2rem,3.5rem);
+        @include Space_Grotesk(400);
+        font-size: var(--h6-size);
+        padding: 1rem;
+        color: var(--color-gray);
+        background: transparent;
+        border: 3px solid var(--color-gray);
+
+        &:hover,
+        &:focus {
+            cursor:pointer;
+            box-shadow: inset 0 -3.25em 0 0 var(--color-select-green);
+            border: 3px solid var(--color-select-green);
+        }
+    }
+}
+
+/*Animate*/

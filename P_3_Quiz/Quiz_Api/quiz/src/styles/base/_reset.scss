@@ -1,0 +1,60 @@
+@use "../abstract/colors";
+@use "../abstract/fonts";
+@use "../themes/position";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #0f0f0f;
+}
+  
+html, body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    //background-color: azure;
+}
+
+button{
+    background-color: none;
+    border:none;
+    color:black;
+    transition: 0.25s;
+
+    :hover{
+        cursor:pointer;
+    }
+}
+
+a{
+    text-decoration: none;
+    font-weight: 500;
+}
+  
+.slide-in{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background-color: var(--color-gray);
+    transform-origin: bottom;
+}
+
+#container-logo{
+    #logo-transition{
+        @include Position_Center;
+        @include Space_Grotesk(600);
+        font-size: var(--font-size-base);
+    }
+}
+  
+.slide-out{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background-color: var(--color-gray);
+    transform-origin: bottom;
+}
+  
